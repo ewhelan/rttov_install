@@ -32,7 +32,7 @@ Get atlas data from [https://nwp-saf.eumetsat.int/site/software/rttov/download/]
 
 
 ## For Harmonie
-### Directory structure
+### Suggested directory structure
 ```
 harmonie_sat_const
 ├── cnrm_mwemis
