@@ -35,11 +35,11 @@ Get atlas data from [https://nwp-saf.eumetsat.int/site/software/rttov/download/]
 ### Suggested directory structure
 ```
 harmonie_sat_const
+├── assharm_coef
 ├── cnrm_mwemis
 ├── rtcoef_rttov12
 │   ├── cldaer_ir
 │   ├── cldaer_visir
-│   ├── coef_dir
 │   ├── htfrtc
 │   ├── mfasis_lut
 │   ├── mietable
@@ -51,42 +51,41 @@ harmonie_sat_const
 │   ├── rttov8pred54L
 │   ├── rttov9pred101L
 │   └── rttov9pred54L
-├── sat_const
 └── uw_ir_emis_atlas_hdf5
 ```
 
-### In coef_dir make some soft links
+### In assharm_coef make some soft links
 ```
-mkdir -p rtcoef_rttov12/coef_dir
-cd rtcoef_rttov12/coef_dir
+mkdir -p assharm_coef
+cd assharm_coef
 # AMSUA-A
-ln -s ../rttov7pred54L/rtcoef_eos_2_amsua.dat rtcoef_eos_2_amsua.dat
-ln -s ../rttov7pred54L/rtcoef_metop_1_amsua.dat rtcoef_metop_1_amsua.dat
-ln -s ../rttov7pred54L/rtcoef_metop_2_amsua.dat rtcoef_metop_2_amsua.dat
-ln -s ../rttov7pred54L/rtcoef_metop_3_amsua.dat rtcoef_metop_3_amsua.dat
-ln -s ../rttov7pred54L/rtcoef_noaa_15_amsua.dat rtcoef_noaa_15_amsua.dat
-ln -s ../rttov7pred54L/rtcoef_noaa_16_amsua.dat rtcoef_noaa_16_amsua.dat
-ln -s ../rttov7pred54L/rtcoef_noaa_17_amsua.dat rtcoef_noaa_17_amsua.dat
-ln -s ../rttov7pred54L/rtcoef_noaa_18_amsua.dat rtcoef_noaa_18_amsua.dat
-ln -s ../rttov7pred54L/rtcoef_noaa_19_amsua.dat rtcoef_noaa_19_amsua.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_eos_2_amsua.dat rtcoef_eos_2_amsua.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_metop_1_amsua.dat rtcoef_metop_1_amsua.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_metop_2_amsua.dat rtcoef_metop_2_amsua.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_metop_3_amsua.dat rtcoef_metop_3_amsua.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_15_amsua.dat rtcoef_noaa_15_amsua.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_16_amsua.dat rtcoef_noaa_16_amsua.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_17_amsua.dat rtcoef_noaa_17_amsua.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_18_amsua.dat rtcoef_noaa_18_amsua.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_19_amsua.dat rtcoef_noaa_19_amsua.dat
 # AMSU-B
-ln -s ../rttov7pred54L/rtcoef_noaa_15_amsub.dat rtcoef_noaa_15_amsub.dat
-ln -s ../rttov7pred54L/rtcoef_noaa_16_amsub.dat rtcoef_noaa_16_amsub.dat
-ln -s ../rttov7pred54L/rtcoef_noaa_17_amsub.dat rtcoef_noaa_17_amsub.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_15_amsub.dat rtcoef_noaa_15_amsub.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_16_amsub.dat rtcoef_noaa_16_amsub.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_17_amsub.dat rtcoef_noaa_17_amsub.dat
 # MHS
-ln -s ../rttov7pred54L/rtcoef_metop_1_mhs.dat rtcoef_metop_1_mhs.dat
-ln -s ../rttov7pred54L/rtcoef_metop_2_mhs.dat rtcoef_metop_2_mhs.dat
-ln -s ../rttov7pred54L/rtcoef_metop_3_mhs.dat rtcoef_metop_3_mhs.dat
-ln -s ../rttov7pred54L/rtcoef_noaa_18_mhs.dat rtcoef_noaa_18_mhs.dat
-ln -s ../rttov7pred54L/rtcoef_noaa_19_mhs.dat rtcoef_noaa_19_mhs.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_metop_1_mhs.dat rtcoef_metop_1_mhs.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_metop_2_mhs.dat rtcoef_metop_2_mhs.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_metop_3_mhs.dat rtcoef_metop_3_mhs.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_18_mhs.dat rtcoef_noaa_18_mhs.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_19_mhs.dat rtcoef_noaa_19_mhs.dat
 # ATMS / MWHS2 -- TBC
-ln -s ../rttov7pred54L/rtcoef_jpss_0_atms.dat rtcoef_jpss_0_atms.dat
-ln -s ../rttov7pred54L/rtcoef_noaa_20_atms.dat rtcoef_noaa_20_atms.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_jpss_0_atms.dat rtcoef_jpss_0_atms.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_20_atms.dat rtcoef_noaa_20_atms.dat
 # MWHS2
-ln -s ../rttov7pred54L/rtcoef_fy3_3_mwhs2.dat rtcoef_fy3_3_mwhs2.dat
-ln -s ../rttov7pred54L/rtcoef_fy3_4_mwhs2.dat rtcoef_fy3_4_mwhs2.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_fy3_3_mwhs2.dat rtcoef_fy3_3_mwhs2.dat
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_fy3_4_mwhs2.dat rtcoef_fy3_4_mwhs2.dat
 # IASI
-ln -s ../rttov9pred101L/rtcoef_metop_2_iasi.H5 rtcoef_metop_2_iasi.H5
+ln -s ../rtcoef_rttov12/rttov9pred101L/rtcoef_metop_2_iasi.H5 rtcoef_metop_2_iasi.H5
 ```
 
 ### Create rtcoef files for Metop-1/Metop-3 IASI
