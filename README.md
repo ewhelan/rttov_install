@@ -9,7 +9,7 @@ FFLAGS_HDF5  = -D_RTTOV_HDF $(FFLAG_MOD)$(HDF5_PREFIX)/include $(FFLAG_MOD)$(HDF
 LDFLAGS_HDF5 = -L$(HDF5_PREFIX)/lib -lhdf5hl_fortran -lhdf5_hl -lhdf5_fortran -lhdf5 -lsz -lz -ldl -lm
 ```
 then
-```
+```bash
 ./rttov_compile.sh
  < gfortran
  < ../../../metapp/rttov/12.3/gnu
@@ -22,7 +22,7 @@ cd ../rttov_test
 ```
 
 ## Download data
-```
+```bash
 cd rtcoef_rttov12
 ./rtcoef_coef_download.sh
 ````
@@ -55,7 +55,7 @@ harmonie_sat_const
 ```
 
 ### In assharm_coef make some soft links
-```
+```bash
 mkdir -p assharm_coef
 cd assharm_coef
 # AMSUA-A
@@ -86,6 +86,9 @@ ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_fy3_3_mwhs2.dat rtcoef_fy3_3_mwhs2.
 ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_fy3_4_mwhs2.dat rtcoef_fy3_4_mwhs2.dat
 # IASI
 ln -s ../rtcoef_rttov12/rttov9pred101L/rtcoef_metop_2_iasi.H5 rtcoef_metop_2_iasi.H5
+# CrIS
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_jpss_0_cris.H5 rtcoef_jpss_0_cris.H5
+ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_20_cris.H5 rtcoef_noaa_20_cris.H5
 ```
 
 ### Create rtcoef files for Metop-1/Metop-3 IASI
@@ -98,4 +101,12 @@ rttov_conv_coef.exe --format-out HDF5 --format-in FORMATTED --coef-out rtcoef_me
 vi rtcoef_metop_3_iasi.dat
 rttov_conv_coef.exe --format-out HDF5 --format-in FORMATTED --coef-out rtcoef_metop_3_iasi.H5 --coef-in rtcoef_metop_3_iasi.dat
 rm rtcoef_metop_2_iasi.dat rtcoef_metop_1_iasi.dat rtcoef_metop_3_iasi.dat
+```
+
+### Create rtcoef files for NOAA-20 CrIS
+```
+ rttov_conv_coef.exe --format-in HDF5 --format-out FORMATTED --coef-in rtcoef_jpss_0_cris.H5 --coef-out rtcoef_jpss_0_cris.dat
+ mv rtcoef_jpss_0_cris.dat rtcoef_noaa_20_cris.dat
+ vi rtcoef_noaa_20_cris.dat
+ rttov_conv_coef.exe --format-out HDF5 --format-in FORMATTED --coef-out rtcoef_noaa_20_cris.H5 --coef-in rtcoef_noaa_20_cris.dat
 ```
