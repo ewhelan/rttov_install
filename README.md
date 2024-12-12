@@ -2,6 +2,49 @@
 # rttov_install
 Keep track of local RTTOV installation
 
+## RTTOV 13.2
+```bash
+mkdir rttov13.2 && tar xvfJ downloads/rttov132.tar.xz -C rttov13.2
+```
+then
+```bash
+cd rttov13.2/build
+sed ....
+./rttov_compile.sh
+ < gfortran
+ < ../../../metapp/rttov/13.2/gnu
+ < -j 4
+```
+
+
+## RTTOV 12.3
+```bash
+mkdir rttov12.3 && tar xvfz downloads/rttov123.tar.gz -C rttov12.3
+```
+then
+```bash
+cd rttov12.3/build
+sed ....
+./rttov_compile.sh
+ < gfortran
+ < ../../../metapp/rttov/12.3/gnu
+ < -j 4
+```
+
+## RTTOV 11.3
+```bash
+mkdir rttov11.3 && tar xvfz downloads/rttov113.tar.gz -C rttov11.3
+```
+then
+```bash
+cd rttov11.3/build
+sed ....
+./rttov_compile.sh
+ < gfortran
+ < ../../../metapp/rttov/12.3/gnu
+ < -j 4
+```
+
 ## build/Makefile.local for CentOS 8
 ```
 HDF5_PREFIX  = /usr
