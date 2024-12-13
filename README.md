@@ -72,8 +72,6 @@ cd rtcoef_rttov12
 
 Get atlas data from [https://nwp-saf.eumetsat.int/site/software/rttov/download/](https://nwp-saf.eumetsat.int/site/software/rttov/download/)
 
-
-
 ## For Harmonie
 ### Suggested directory structure
 ```
@@ -97,61 +95,13 @@ harmonie_sat_const
 └── uw_ir_emis_atlas_hdf5
 ```
 
-### In assharm_coef make some soft links
+### harm_coef creation
+Script that provide all the necessary coefficient files for Harmonie NWP
+
 ```bash
-mkdir -p assharm_coef
-cd assharm_coef
-# AMSUA-A
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_eos_2_amsua.dat rtcoef_eos_2_amsua.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_metop_1_amsua.dat rtcoef_metop_1_amsua.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_metop_2_amsua.dat rtcoef_metop_2_amsua.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_metop_3_amsua.dat rtcoef_metop_3_amsua.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_15_amsua.dat rtcoef_noaa_15_amsua.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_16_amsua.dat rtcoef_noaa_16_amsua.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_17_amsua.dat rtcoef_noaa_17_amsua.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_18_amsua.dat rtcoef_noaa_18_amsua.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_19_amsua.dat rtcoef_noaa_19_amsua.dat
-# AMSU-B
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_15_amsub.dat rtcoef_noaa_15_amsub.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_16_amsub.dat rtcoef_noaa_16_amsub.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_17_amsub.dat rtcoef_noaa_17_amsub.dat
-# MHS
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_metop_1_mhs.dat rtcoef_metop_1_mhs.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_metop_2_mhs.dat rtcoef_metop_2_mhs.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_metop_3_mhs.dat rtcoef_metop_3_mhs.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_18_mhs.dat rtcoef_noaa_18_mhs.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_19_mhs.dat rtcoef_noaa_19_mhs.dat
-# ATMS / MWHS2 -- TBC
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_jpss_0_atms.dat rtcoef_jpss_0_atms.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_20_atms.dat rtcoef_noaa_20_atms.dat
-# MWHS2
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_fy3_3_mwhs2.dat rtcoef_fy3_3_mwhs2.dat
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_fy3_4_mwhs2.dat rtcoef_fy3_4_mwhs2.dat
-# IASI
-ln -s ../rtcoef_rttov12/rttov9pred101L/rtcoef_metop_2_iasi.H5 rtcoef_metop_2_iasi.H5
-# CrIS
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_jpss_0_cris.H5 rtcoef_jpss_0_cris.H5
-ln -s ../rtcoef_rttov12/rttov7pred54L/rtcoef_noaa_20_cris.H5 rtcoef_noaa_20_cris.H5
-```
+mkdir harm_coef
 
-### Create rtcoef files for Metop-1/Metop-3 IASI
-```
-rttov_conv_coef.exe --format-in HDF5 --format-out FORMATTED --coef-in rtcoef_metop_2_iasi.H5 --coef-out rtcoef_metop_2_iasi.dat
-cp rtcoef_metop_2_iasi.dat rtcoef_metop_1_iasi.dat
-cp rtcoef_metop_2_iasi.dat rtcoef_metop_3_iasi.dat
-vi rtcoef_metop_1_iasi.dat
-rttov_conv_coef.exe --format-out HDF5 --format-in FORMATTED --coef-out rtcoef_metop_1_iasi.H5 --coef-in rtcoef_metop_1_iasi.dat
-vi rtcoef_metop_3_iasi.dat
-rttov_conv_coef.exe --format-out HDF5 --format-in FORMATTED --coef-out rtcoef_metop_3_iasi.H5 --coef-in rtcoef_metop_3_iasi.dat
-rm rtcoef_metop_2_iasi.dat rtcoef_metop_1_iasi.dat rtcoef_metop_3_iasi.dat
-```
-
-### Create rtcoef files for NOAA-20 CrIS
-```
- rttov_conv_coef.exe --format-in HDF5 --format-out FORMATTED --coef-in rtcoef_jpss_0_cris.H5 --coef-out rtcoef_jpss_0_cris.dat
- mv rtcoef_jpss_0_cris.dat rtcoef_noaa_20_cris.dat
- vi rtcoef_noaa_20_cris.dat
- rttov_conv_coef.exe --format-out HDF5 --format-in FORMATTED --coef-out rtcoef_noaa_20_cris.H5 --coef-in rtcoef_noaa_20_cris.dat
+cd  ...
 ```
 
 
