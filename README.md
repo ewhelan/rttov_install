@@ -26,19 +26,34 @@ scripts/compile_all.sh -C
 scripts/compile_all.sh -c RL8
 ```
 
-## Download data
+## Download coefficient files
+Only MW/VIS/IR and hi-res IR coefficient files are required:
+
+File types are:
+  - Optical depth (rtcoef) coefficient files for MW, IR and VIS/IR [X]
+  - VIS/IR aerosol (scaer) and cloud (sccld) coefficient files [ ]
+  - MFASIS LUT files [ ]
+  - RTTOV-SCATT MW mietable files [ ]
+  - Optical depth (rtcoef) files for hi-res IR sounders [X]
+  - Hi-res IR sounder aerosol (scaer) and cloud (sccld) coefficient files [ ]
+  - PC-RTTOV coefficient files [ ]
+  - HTFRTC coefficient files [ ]
+
+### RTTOV 11
 ```bash
 cd rttov_install
 cd builds/rttov11.3/rtcoef_rttov11
 ./rttov_coef_download.sh
 ```
 
+### RTTOV 12
 ```bash
 cd rttov_install
 cd builds/rttov12.3/rtcoef_rttov12
 ./rttov_coef_download.sh
 ```
 
+### RTTOV 13
 ```bash
 cd rttov_install
 cd builds/rttov13.2/rtcoef_rttov13
