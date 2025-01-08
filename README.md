@@ -2,74 +2,73 @@
 # rttov_install
 Keep track of local RTTOV installation
 
-## RTTOV 13.2
+## Get this code
 ```bash
-mkdir rttov13.2 && tar xvfJ downloads/rttov132.tar.xz -C rttov13.2
-```
-then
-```bash
-cd rttov13.2/build
-sed ....
-./rttov_compile.sh
- < gfortran
- < ../../../metapp/rttov/13.2/gnu
- < -j 4
+git clone https://github.com/ewhelan/rttov_install.git
 ```
 
-
-## RTTOV 12.3
+## Download RTTOV software
 ```bash
-mkdir rttov12.3 && tar xvfz downloads/rttov123.tar.gz -C rttov12.3
-```
-then
-```bash
-cd rttov12.3/build
-sed ....
-./rttov_compile.sh
- < gfortran
- < ../../../metapp/rttov/12.3/gnu
- < -j 4
+cd rttov_install
+mkdir downloads
+cd downloads
+# Copy code here
 ```
 
-## RTTOV 11.3
 ```bash
-mkdir rttov11.3 && tar xvfz downloads/rttov113.tar.gz -C rttov11.3
-```
-then
-```bash
-cd rttov11.3/build
-sed ....
-./rttov_compile.sh
- < gfortran
- < ../../../metapp/rttov/12.3/gnu
- < -j 4
+$ cd downloads
+$ md5sum rttov*
+cf58cb4243a196d5958c6782066f956a  rttov113.tar.gz
+da5e4f7c75dcb028fd997fed96ad4710  rttov123.tar.gz
+98263a31aa389aefb2adf953de584e0b  rttov132.tar.xz
 ```
 
-## build/Makefile.local for CentOS 8
-```
-HDF5_PREFIX  = /usr
-FFLAGS_HDF5  = -D_RTTOV_HDF $(FFLAG_MOD)$(HDF5_PREFIX)/include $(FFLAG_MOD)$(HDF5_PREFIX)/lib64/gfortran/modules
-LDFLAGS_HDF5 = -L$(HDF5_PREFIX)/lib -lhdf5hl_fortran -lhdf5_hl -lhdf5_fortran -lhdf5 -lsz -lz -ldl -lm
-```
-then
+## Compile RTTOV software
 ```bash
-./rttov_compile.sh
- < gfortran
- < ../../../metapp/rttov/12.3/gnu
- < -j 4
-```
-then
-```
-cd ../rttov_test
-./test_rttov12.sh ARCH=gfortran BIN=../../metapp/rttov/12.3/gnu/bin
+cd rttov_install
+scripts/compile_all.sh -C
+scripts/compile_all.sh -c RL8
 ```
 
 ## Download data
 ```bash
-cd rtcoef_rttov12
-./rtcoef_coef_download.sh
-````
+cd rttov_install
+cd builds/rttov11.3/rtcoef_rttov11
+./rttov_coef_download.sh
+```
 
+```bash
+cd rttov_install
+cd builds/rttov12.3/rtcoef_rttov12
+./rttov_coef_download.sh
+```
+
+```bash
+cd rttov_install
+cd builds/rttov13.2/rtcoef_rttov13
+./rttov_coef_download.sh
+```
+
+## Gather coefficient files
+### RTTOV 11 (Cycle 43)
+```bash
+cd rttov_install
+scripts/make_harmcoefs_11.sh -i builds/rttov11.3/rtcoef_rttov11
+```
+
+### RTTOV 12 (Cycle 46)
+```bash
+cd rttov_install
+scripts/make_harmcoefs_12.sh -i builds/rttov12.3/rtcoef_rttov12
+```
+
+### RTTOV 13 (Cycle 46)
+```bash
+cd rttov_install
+scripts/make_harmcoefs_13.sh -i builds/rttov13.2/rtcoef_rttov13
+```
+
+## Atlas data
 Get atlas data from [https://nwp-saf.eumetsat.int/site/software/rttov/download/](https://nwp-saf.eumetsat.int/site/software/rttov/download/)
 
 ## For Harmonie
@@ -78,32 +77,14 @@ Get atlas data from [https://nwp-saf.eumetsat.int/site/software/rttov/download/]
 harmonie_sat_const
 ├── assharm_coef
 ├── cnrm_mwemis
+├── rtcoef_rttov11
+│   ├── harm_coef
 ├── rtcoef_rttov12
-│   ├── cldaer_ir
-│   ├── cldaer_visir
-│   ├── htfrtc
-│   ├── mfasis_lut
-│   ├── mietable
-│   ├── pc
-│   ├── rttov7pred101L
-│   ├── rttov7pred54L
-│   ├── rttov8pred101L
-│   ├── rttov8pred51L
-│   ├── rttov8pred54L
-│   ├── rttov9pred101L
-│   └── rttov9pred54L
+│   ├── harm_coef
+├── rtcoef_rttov13
+│   ├── harm_coef
 └── uw_ir_emis_atlas_hdf5
 ```
-
-### harm_coef creation
-Script that provide all the necessary coefficient files for Harmonie NWP
-
-```bash
-mkdir harm_coef
-
-cd  ...
-```
-
 
 
 # Some links
