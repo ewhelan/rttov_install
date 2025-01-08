@@ -9,3 +9,11 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+
+downloads
+builds
+install
+testing113.log
+testing123.log
+testing132.log
+harm_coef
