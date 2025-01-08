@@ -145,4 +145,7 @@ sed -e '1s/jpss-0/noaa-21/'     -e '7s/17   0/ 1  21/'     -e '8s/jpss-0 /noaa-2
 /home/ewhelan/rttov_install/install/rttov/12.3/bin/rttov_conv_coef.exe --format-out HDF5 --format-in FORMATTED --coef-out rtcoef_noaa_21_cris.H5 --coef-in rtcoef_noaa_21_cris.dat
 rm -f rtcoef_jpss_0_cris.dat rtcoef_noaa_20_cris.dat rtcoef_noaa_21_cris.dat
 
+# AWS : AWS-1
+cp -p ${ABS_PATH}/rttov7pred54L/rtcoef_aws_1_aws.dat rtcoef_aws_1_aws.dat
+
 exit 0
