@@ -71,14 +71,13 @@ Get atlas data from [https://nwp-saf.eumetsat.int/site/software/rttov/download/]
 ### Suggested directory structure
 ```
 harmonie_sat_const
-├── assharm_coef
 ├── cnrm_mwemis
 ├── rtcoef_rttov11
-│   ├── harm_coef
+│   └── harm_coef
 ├── rtcoef_rttov12
-│   ├── harm_coef
+│   └── harm_coef
 ├── rtcoef_rttov13
-│   ├── harm_coef
+│   └── harm_coef
 └── uw_ir_emis_atlas_hdf5
 ```
 
