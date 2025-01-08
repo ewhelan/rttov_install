@@ -9,14 +9,10 @@ git clone https://github.com/ewhelan/rttov_install.git
 
 ## Download RTTOV software
 ```bash
-cd rttov_install
-mkdir downloads
-cd downloads
-# Copy code here
-```
-
-```bash
+$ cd rttov_install
+$ mkdir downloads
 $ cd downloads
+# Copy code here
 $ md5sum rttov*
 cf58cb4243a196d5958c6782066f956a  rttov113.tar.gz
 da5e4f7c75dcb028fd997fed96ad4710  rttov123.tar.gz
