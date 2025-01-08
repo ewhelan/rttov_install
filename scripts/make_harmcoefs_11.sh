@@ -152,6 +152,6 @@ ln -s rtcoef_jpss_0_cris.dat rtcoef_noaa_21_cris.dat
 rm -f rtcoef_jpss_0_cris-fsr.H5 rtcoef_jpss_0_cris-fsr.H5.bin
 
 # AWS : AWS-1
-cp ${ABS_PATH}/../../rttov13.2/rtcoef_rttov13/rttov13pred54L/rtcoef_aws_1_aws_o3.dat .
-/home/ewhelan/rttov_install/install/rttov/13.2/bin/rttov11_conv_coef_12to11.exe --coef-in rtcoef_aws_1_aws_o3.dat --coef-out rtcoef_aws_1_aws.dat
-rm -f rtcoef_aws_1_aws_o3.dat
+cp ${ABS_PATH}/../../rttov12.3/rtcoef_rttov12/rttov7pred54L/rtcoef_aws_1_aws.dat rtcoef12_aws_1_aws.dat
+/home/ewhelan/rttov_install/install/rttov/12.3/bin/rttov11_conv_coef_12to11.exe --coef-in rtcoef12_aws_1_aws.dat --coef-out rtcoef_aws_1_aws.dat
+rm -f rtcoef12_aws_1_aws.dat
