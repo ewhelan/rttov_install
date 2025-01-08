@@ -1,6 +1,6 @@
 
 # rttov_install
-Keep track of local RTTOV installation
+This repo is an attempt to keep track of local RTTOV installations including versions 11, 12, and 13. It includes a script to compile RTTOV software, scripts to gather coefficient files for use in NWP (IAL/Harmonie) and a script to compare _old_ and _new_ coefficient directories.
 
 ## Get this code
 ```bash
