@@ -119,6 +119,7 @@ cp -p ${ABS_PATH}/rttov7pred54L/rtcoef_noaa_20_atms.dat rtcoef_noaa_20_atms.dat
 # MWHS2 : FY-3C/FY-3D
 cp -p ${ABS_PATH}/rttov7pred54L/rtcoef_fy3_3_mwhs2.dat rtcoef_fy3_3_mwhs2.dat
 cp -p ${ABS_PATH}/rttov7pred54L/rtcoef_fy3_4_mwhs2.dat rtcoef_fy3_4_mwhs2.dat
+cp -p ${ABS_PATH}/../../rttov13.2/rtcoef_rttov13/rttov7pred54L/rtcoef_fy3_5_mwhs2e_srf.dat rtcoef_fy3_5_mwhs2.dat
 
 # IASI : Metop-2
 cp -p ${ABS_PATH}/rttov9pred101L/rtcoef_metop_2_iasi.H5 rtcoef_metop_2_iasi.H5

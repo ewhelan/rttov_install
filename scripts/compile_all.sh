@@ -91,6 +91,8 @@ if [ ! -f downloads/rttov132.tar.xz ]; then
   exit 1
 fi
 
+set -e
+
 ###############################################################################
 ## RTTOV 11.3
 ###############################################################################
@@ -136,7 +138,6 @@ cd builds/rttov12.3/build/
 ./rttov_compile.sh <<EOF
 gfortran
 ../../${install_dir}
-n
 -j 2
 y
 EOF
@@ -161,7 +162,6 @@ cd ${TOPDIR}/builds/rttov13.2/build/
 ./rttov_compile.sh <<EOF
 gfortran
 ../../${install_dir}
-n
 -j 2
 y
 EOF
